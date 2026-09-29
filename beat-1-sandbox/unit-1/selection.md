@@ -25,18 +25,21 @@ fabricating a verdict or JSON block.]
 
 **Run history**
 
-The full evaluation harness was run once with the rubric. The harness reported
-errors for all 20 issues because Claude exited with code 1. No agreement score was
-produced.
-
-The recorded output included:
+The full evaluation harness was run once with the rubric. The run produced the
+following results:
 
 `issue-01: ERROR (claude exited 1: )`
 
-and the same `claude exited 1` error occurred for issues 02 through 20.
+`issue-02: ERROR (claude exited 1: )`
 
-Because there was no scored agreement result, there is no valid agreement score to
-report here.
+The same `claude exited 1` error was reported for all 20 issues. The harness did
+not produce an agreement score because no issues were successfully scored.
+
+The final harness output showed:
+
+`issue-20  reject  ERROR  claude exited 1:`
+
+No valid agreement score was produced, so no agreement score is being claimed here.
 
 **Issue analysis**
 
