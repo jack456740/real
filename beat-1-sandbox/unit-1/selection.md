@@ -40,7 +40,6 @@ The final harness output showed:
 `issue-20  reject  ERROR  claude exited 1:`
 
 No valid agreement score was produced, so no agreement score is being claimed here.
-
 **Issue analysis**
 
 The full evaluation did not produce a scored issue. For example, the harness
@@ -48,9 +47,9 @@ reported:
 
 `issue-01  accept  ERROR`
 
-The gold label for issue-01 was `accept`, but the rubric did not produce a verdict
-because the Claude grading process exited with code 1. Therefore, no rubric
-reasoning or rubric verdict is being claimed for this issue.
+Here, `accept` is the harness's gold label for issue-01, while `ERROR` indicates
+that the Claude grading process did not produce a rubric verdict. Therefore, no
+rubric reasoning or rubric verdict is being claimed for this issue.
 
 **Check rationale**
 
