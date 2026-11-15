@@ -1,103 +1,85 @@
-# Contribution: [Issue Title]
+# Contribution: Test OneShotSTL with a Custom shift_threshold
 
-Path: `beat-2-contribution/contribution-story.md`
-
-This file is Assignment 5, and it is graded at the path above; a copy kept anywhere else in
-the repository is not read. **Keep every section header below under its exact name** — the
-format criteria grade exactly that. Your course repo link is the whole submission: no tool
-files and no evidence uploads are part of Assignment 5.
-
-**Contribution Number:** [1]
-**Student:** [Student name]
-**GitHub Username:** [your GitHub username, exactly as it appears on your profile - no @, no
-profile URL. Your comments upstream are identified by this name.]
-**Issue:** [GitHub issue link]
-**Pull Request:** [GitHub PR link, once opened]
-
-One repository, built across units 5 to 8, telling the whole story of your real
-contribution. Fill it as you work, not at the end — the sections below ask for evidence that
-is far easier to write down as it happens than to reconstruct in the last weekend.
-
-Contribution Number stays `[1]` unless you make more than one contribution this term; it
-just numbers them.
+**Contribution Number:** 1  
+**Student:** Alvin Rogers  
+**GitHub Username:** jack456740  
+**Issue:** https://github.com/selimfirat/pysad/issues/773  
+**Pull Request:** https://github.com/selimfirat/pysad/pull/779
 
 ---
 
 ## Toolkit
 
-Every story section below, from Why I Chose This Issue through Pull
-Request, ends with a Toolkit block: which tool did that phase's work
-and how you used it, what it produced, what difficulties or
-shortcomings it presented, and what you changed or would change
-because of them. Together the blocks are the thread the rubric's
-Toolkit points read, and they are the raw material for your unit-9
-portfolio, so keep them current as you work rather than
-reconstructing them later.
+**Unit 9: Building My Issue Scout**
 
-A Toolkit block looks like this (copy it into each story section and
-fill it there):
+During Unit 9, I worked with Claude Code to build an issue scout for finding and evaluating open-source GitHub issues. The scout was designed to assess whether issues matched my skills and were manageable contributions.
 
-```text
-**Toolkit**
+One challenge was that real-world issues can contain unanswered questions, making a strict scope check less useful. I identified the need to improve the rubric so it could distinguish straightforward, moderate, and ambitious issues instead of automatically rejecting them.
 
-- Tool: [which tool did this phase's work, and how you used it]
-- What it produced: [described in a sentence or a short excerpt]
-- Difficulties: [what fought you or fell short, or "none met"]
-- What changed: [the patch, revision, or workaround, what you would
-  update, or "nothing"]
-```
+I selected PySAD issue #773 because it offered a focused testing contribution related to Python and machine learning.
 
-This section also keeps one short dated entry per week of tool work,
-starting below: what you built or changed that week, what broke, and
-what you changed because of it. The blocks tell the story where it
-happened; these entries are the toolkit's own timeline.
+**Unit 10: Voice Guard and Repository Memory**
 
-All four entries are graded. Keep every heading below, and fill each
-one in the week it belongs to.
+During Unit 10, I focused on preparing to communicate with maintainers while contributing to PySAD issue #773.
 
-**Unit 5: [one line on the tool work]**
+The assignment introduced a Claude Code voice guard to check GitHub comments against my writing guidelines and a `CLAUDE.local.md` file to preserve repository-specific instructions.
 
-[2-4 sentences: what you built (the scout, your strategy), what broke
-or fell short, what changed because of it.]
+These tools are intended to make communication more consistent and reduce repeated setup work. I still need to verify that both tools were installed and tested successfully.
 
-**Unit 6: [one line on the tool work]**
+**Unit 11: Implementing and Testing My PySAD Contribution**
 
-[2-4 sentences: the voice-guard, the repo-memory file. What broke or
-fell short, and what changed because of it. "Nothing broke" counts when
-it is true - say how you know.]
+During Unit 11, I implemented a regression test for PySAD issue #773 to verify how `OneShotSTL` behaves with different `shift_threshold` values.
 
-**Unit 7: [one line on the tool work]**
+The full test suite completed with 3,154 tests passing, 4 skipped, and 75 deselected.
 
-[2-4 sentences: the ship-gate and your gate manifest. What it produced
-on your real branch, what fought you, what changed because of it.]
+While running pre-commit checks, I encountered an unrelated modification to `CLAUDE.md` and Windows line-ending changes affecting multiple files.
 
-**Unit 8: [one line on the tool work]**
+I restored those changes, confirmed that my working tree was clean, and submitted pull request #779.
 
-[2-4 sentences: the PR-monitor and your playbook. What it read, what it
-drafted, what you did with the draft.]
+I still need to verify the ship-gate installation and its results before documenting that tool as completed.
+
+**Unit 12: Monitoring My Pull Request**
+
+During Unit 12, I focused on tracking my PySAD pull request #779 while waiting for maintainer feedback.
+
+The assignment introduced a PR monitor that checks GitHub for reviews, comments, and status changes, along with a playbook for deciding when to respond or follow up.
+
+My pull request passed all 20 GitHub CI checks but still required code-owner review.
+
+I still need to verify the PR-monitor installation and document its results.
 
 ---
 
 ## Why I Chose This Issue
 
-[1-2 paragraphs in your own words: how you searched, what your scan
-surfaced, what your scout's verdict said, why this issue fits your
-profile, and what you hope to learn. If your scout's verdict on it
-was reject and you chose it anyway, say so here and say why; choosing
-against your own tool silently is what loses points. Close with an
-honest read of the tool itself: where the scout fell short on a real
-wild search and what you changed or would change, or what convinced
-you it held up. **Record the link to your claim comment in this section too.**
-Not claimed yet? Write `claim pending` and today's date where the link goes,
-and add the link the moment your claim lands.]
+I chose PySAD issue #773, "Test OneShotSTL with a custom shift_threshold," because it gave me an opportunity to contribute to an open-source Python project through automated testing.
+
+During the issue-selection process, I used Claude Code and my issue-scout workflow to explore potential contributions.
+
+This issue stood out because it had a focused testing goal and involved understanding how a machine learning preprocessing component responds to changes in its configuration.
+
+The issue fit my interest in Python and machine learning while giving me experience with regression testing in an existing codebase.
+
+I wanted to learn how to create a deterministic test, run a project's test suite, and submit a pull request for maintainer review.
+
+**Scout verdict and difficulty:**
+
+I selected PySAD issue #773 because it had a focused scope involving regression testing rather than changes to the underlying algorithm.
+
+The task required understanding the `OneShotSTL` component, constructing deterministic test data, and validating the results with pytest.
+
+I considered it a manageable contribution for my current Python experience.
+
+The original automated scout verdict and difficulty rating were not preserved, so I have not assigned an unverified score.
+
+**Claim comment:** https://github.com/selimfirat/pysad/issues/773#issuecomment-6891074775
 
 **Toolkit**
 
-- Tool: issue-scout (your scout: your search strategy, your rubric),
-  and how you used it
-- What it produced: [the scan and its verdict on this issue, described]
-- Difficulties: [where it fell short, or "none met" if none did]
-- What changed: [what you patched or would update, or "nothing"]
+- **Tool:** Claude Code issue-scout, used to research and evaluate GitHub issues based on scope, difficulty, and suitability.
+- **What it produced:** The issue-selection process led me to PySAD issue #773, a focused testing contribution.
+- **Difficulties:** A strict scope check could reject real-world issues because they contained unanswered questions.
+- **What changed:** I identified the `scope-feasible` rubric as an improvement, categorizing issues as straightforward, moderate, or ambitious. I still need to confirm whether I applied this patch.
 
 ---
 
@@ -105,26 +87,38 @@ and add the link the moment your claim lands.]
 
 **Problem Description**
 
-[In your own words, what is broken or missing?]
+PySAD issue #773 requested a test for the `OneShotSTL` preprocessing component using a custom `shift_threshold` value.
+
+The existing test coverage did not specifically verify how changing this threshold affects the component's behavior when a seasonal pattern shifts.
+
+This was a testing gap rather than a confirmed defect in the implementation.
 
 **Expected Behavior**
 
-[What should happen?]
+`OneShotSTL` should respond differently depending on the configured `shift_threshold`.
+
+A lower threshold should allow the component to respond more readily to a change in the seasonal pattern, while an extremely high threshold should make it less responsive.
 
 **Current Behavior**
 
-[What actually happens?]
+Before my contribution, there was no dedicated regression test comparing different `shift_threshold` values.
+
+This made it harder to verify that the parameter behaved as expected.
 
 **Affected Components**
 
-[Which parts of the codebase are involved?]
+The contribution involves the `OneShotSTL` preprocessing component and its tests.
+
+The regression test was added to:
+
+`tests/transform/preprocessing/test_one_shot_stl.py`
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- **Tool:** Claude Code and repository inspection.
+- **What it produced:** I identified the relevant preprocessing component and its test file, then determined how to compare the behavior of different threshold values.
+- **Difficulties:** The issue involved missing regression coverage rather than an obvious crash.
+- **What changed:** I focused on comparing absolute residuals from two threshold configurations using deterministic periodic data.
 
 ---
 
@@ -132,31 +126,61 @@ and add the link the moment your claim lands.]
 
 **Environment Setup**
 
-[What a stranger would need to stand this up: your operating system,
-the relevant versions (language, runtime, package manager, the project
-itself), and how you set the project up. Then the challenges you faced
-and how you solved them, or that none came up.]
+I worked on PySAD using Windows and PowerShell.
+
+My local repository was located at:
+
+`C:\Users\Alvin\ai301-unit6-starter\pysad`
+
+I used Git, Python, pip, and pytest.
+
+I worked on the branch `test/773-oneshotstl-shift-threshold`, which was pushed to my GitHub fork at `jack456740/pysad`.
+
+I installed the project's Python dependencies and additional packages required by its tests.
+
+Missing dependencies included `PyNomaly` and `mmh3`.
+
+I also encountered compatibility issues with pandas 3.1.1 and resolved them by using pandas 2.3.3.
+
+**Python version:** Python 3.14.7
+
+**PySAD revision:** `e555fcf1787cfa53009726fc24f3fc1be0894edd`
+
+**Development environment:** Windows, PowerShell, Python 3.14.7, Git, pip, and pytest.
+
+The complete test run reported 3,154 passed, 4 skipped, and 75 deselected.
+
+Pre-commit checks produced unrelated modifications to `CLAUDE.md` and Windows line-ending changes.
+
+I restored those modifications and confirmed that my working tree was clean.
 
 **Steps to Reproduce**
 
-1. [Step 1]
-2. [Step 2]
-3. [Observed result]
+1. Clone the PySAD repository and install its development dependencies.
+2. Open `tests/transform/preprocessing/test_one_shot_stl.py` and inspect the existing tests for `OneShotSTL`.
+3. Check whether the tests compare behavior using a custom `shift_threshold`.
+4. Construct a deterministic periodic series with a seasonal shift beginning at index 100.
+5. Run the series through `OneShotSTL` with `shift_threshold=1.0` and `shift_threshold=1e12`.
+6. Compare the absolute residuals at the first shifted observation.
+7. Confirm that the lower threshold produces a smaller absolute residual in the constructed example.
+
+The missing coverage was reproduced by inspecting the existing tests.
+
+The new regression test then demonstrated the intended parameter behavior.
 
 **Reproduction Evidence**
 
-- **Commit showing reproduction:** [link to commit in your fork]
-- **Screenshots/logs:** [if applicable]
-- **My findings:** [what you discovered during reproduction; an
-  honest, evidenced cannot-reproduce that led you to re-pick or ask
-  the maintainer belongs here and costs you nothing]
+- **Commit:** `e555fcf1787cfa53009726fc24f3fc1be0894edd`
+- **Preprocessing tests:** 164 passed.
+- **Full test suite:** 3,154 passed, 4 skipped, 75 deselected.
+- **My findings:** The issue concerned missing regression coverage. A deterministic seasonal-shift example provided an observable way to test the effect of `shift_threshold` without modifying the underlying preprocessing implementation.
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- **Tool:** pytest, Git, and repository inspection. Repro-check tool results have not yet been verified.
+- **What it produced:** A reproducible test scenario using periodic data with a shift at index 100, and test results confirming the expected residual comparison.
+- **Difficulties:** Missing dependencies and pandas compatibility problems initially prevented parts of the test suite from running.
+- **What changed:** I installed the missing packages and used pandas 2.3.3 to complete the tests.
 
 ---
 
@@ -164,93 +188,223 @@ and how you solved them, or that none came up.]
 
 **Analysis**
 
-[Your analysis of the root cause: what is causing the issue, traced
-to the files and functions involved.]
+The issue was a gap in the automated test coverage for the `OneShotSTL` preprocessing component.
+
+The existing tests did not directly compare different `shift_threshold` configurations on a deterministic seasonal-shift example.
+
+Because the issue requested a test, the appropriate change was to add regression coverage rather than modify the algorithm itself.
 
 **Proposed Solution**
 
-[High-level description of your fix approach, and what you are
-deliberately NOT changing.]
+I planned to add a deterministic test in:
+
+`tests/transform/preprocessing/test_one_shot_stl.py`
+
+The test would generate periodic data with a shift, process it using two different `shift_threshold` values, and compare the resulting residuals.
+
+I deliberately avoided changing the implementation of `OneShotSTL`, modifying unrelated tests, or introducing unnecessary dependencies.
 
 **Implementation Plan**
 
-1. [Modify file X to do Y]
-2. [Add or change Z]
-3. [Update tests]
+1. Inspect the existing `OneShotSTL` tests and identify where to add the new test.
+2. Generate deterministic periodic data with a shift beginning at index 100.
+3. Create two `OneShotSTL` configurations using thresholds of `1.0` and `1e12`.
+4. Process the same data through both configurations.
+5. Assert that the lower threshold produces a smaller absolute residual at the first shifted observation.
+6. Run the preprocessing test suite and full project test suite.
+7. Review the Git diff, commit the test, and open a pull request.
 
-[Record deviations here as they happen: what changed mid-build and
-why. A recorded deviation is honest work; silent drift is not.]
+**Deviations:**
+
+The testing environment required additional dependency installation and a pandas version adjustment.
+
+Windows line-ending changes also required cleanup.
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- **Tool:** Claude Code, Git, and pytest. Plan-check tool results have not yet been verified.
+- **What it produced:** A focused implementation plan for a single regression test.
+- **Difficulties:** Environment compatibility and repository-wide formatting checks introduced work outside the test itself.
+- **What changed:** I resolved the environment issues and kept the committed changes limited to the intended test file.
 
 ---
 
 ## Testing Strategy
 
-[What observable checks prove the fix: your reproduction steps re-run
-against the built change (before and after), and the repo's own test
-suite or checks with the outcome shown. "Tests pass" with nothing
-observable named is not a strategy.]
+I tested the contribution at multiple levels.
+
+**Regression Behavior**
+
+The new test used deterministic periodic data with a seasonal shift at index 100.
+
+It compared the absolute residuals produced by `OneShotSTL` with `shift_threshold=1.0` and `shift_threshold=1e12`.
+
+The assertion verified that the lower threshold produced a smaller absolute residual at the first shifted observation.
+
+**Preprocessing Tests**
+
+Command:
+
+`python -m pytest tests/transform/preprocessing -q`
+
+Result: **164 passed**.
+
+**Full Project Tests**
+
+Command:
+
+`python -m pytest -q`
+
+Result: **3,154 passed, 4 skipped, 75 deselected**.
+
+**Pre-commit Checks**
+
+Command:
+
+`python -m pre_commit run --all-files`
+
+Most checks passed.
+
+The `end-of-file-fixer` modified the unrelated `CLAUDE.md` file, so the complete pre-commit run did not pass cleanly.
+
+I restored unrelated changes and checked the working tree with:
+
+`git status`
+
+Result: `nothing to commit, working tree clean`.
+
+**GitHub Continuous Integration (CI)**
+
+After submitting pull request #779, GitHub Actions ran the repository's automated checks.
+
+**Results:**
+
+- 20 automated checks passed successfully.
+- GitHub reported "All checks have passed."
+- No failing CI checks were shown.
+- One code-owner review remained pending.
+- Merging was blocked until the required review was completed.
+
+These results provide additional evidence that my regression test integrates successfully with the PySAD project.
+
+Although all automated checks passed, the contribution still requires maintainer approval before it can be merged.
+
+**Before-and-after evidence:** The original gap was missing regression coverage. The added test passed as part of the preprocessing and full test suites. Separate before-and-after reproduction output was not preserved.
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- **Tool:** pytest, pre-commit, Git, and GitHub Actions. Ship-gate tool results have not yet been verified.
+- **What it produced:** Passing preprocessing and full-suite test results, 20 successful GitHub CI checks, and evidence that the committed diff was limited to one test file.
+- **Difficulties:** Missing packages, pandas compatibility, and Windows line-ending modifications.
+- **What changed:** I resolved dependency issues, restored unrelated changes, and verified a clean working tree before finalizing the contribution.
 
 ---
 
 ## Implementation Notes
 
-[A running log, added to as you work. Date each entry. What you
-built, decisions you made when you made them, wrong turns included.]
+**November 15, 2026 — Implementation Commit**
 
-**[Date]**
+I selected PySAD issue #773 and inspected the existing `OneShotSTL` test coverage.
 
-[Entry]
+I chose to implement a deterministic regression test rather than change the preprocessing algorithm.
 
-**[Date]**
+I added a test using periodic data with a seasonal shift at index 100.
 
-[Entry]
+The test compared thresholds of `1.0` and `1e12` and checked their absolute residuals at the first shifted observation.
+
+During testing, I encountered missing Python dependencies and pandas compatibility issues.
+
+After installing the necessary packages and adjusting the pandas version, I successfully completed the preprocessing and full pytest suites.
+
+The commit date is verified as November 15, 2026. The exact dates of earlier development steps were not independently recorded.
+
+**November 15, 2026 — Commit and Pull Request**
+
+I completed my regression test for PySAD issue #773 and committed the change using Git.
+
+- **Commit:** `e555fcf1787cfa53009726fc24f3fc1be0894edd`
+- **Commit date:** November 15, 2026
+- **Commit message:** `test: cover OneShotSTL custom shift_threshold (#773)`
+- **Branch:** `test/773-oneshotstl-shift-threshold`
+- **Pull request:** https://github.com/selimfirat/pysad/pull/779
+
+During development, I encountered Windows line-ending changes affecting multiple files.
+
+I used `git diff --ignore-space-at-eol --stat` to confirm that these changes did not contain substantive differences.
+
+I restored the unrelated modifications using:
+
+`git restore --worktree .`
+
+Finally, I ran `git status` and confirmed that my working tree was clean and my branch was up to date with the remote repository.
+
+The pull request was submitted for review; its exact creation date should be confirmed from GitHub.
+
+**GitHub CI Results**
+
+GitHub Actions completed all 20 automated checks successfully.
+
+GitHub indicated that the pull request was waiting for a required code-owner review before merging.
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- **Tool:** Git, pytest, pre-commit, GitHub Actions, and Claude Code.
+- **What it produced:** One focused commit adding 24 lines to the `OneShotSTL` test file, followed by pull request #779 and 20 passing GitHub checks.
+- **Difficulties:** Environment dependency problems, unrelated formatting modifications, and the pending review requirement.
+- **What changed:** I corrected the environment, restored unrelated files, and verified that the branch contained only the intended contribution.
 
 ---
 
 ## Pull Request
 
-**PR Link:** [GitHub PR URL when opened]
+**PR Link:** https://github.com/selimfirat/pysad/pull/779
 
-**PR Description:** [what the PR says; much of the content above
-adapts into it]
+**PR Description**
 
-**Maintainer Feedback:**
+Title: `test: cover OneShotSTL custom shift_threshold (#773)`
 
-- [Date]: [feedback received, or "none yet"; silence is a normal
-  state and costs you nothing]
-- [Date]: [how you addressed it]
+The pull request adds a deterministic regression test for `OneShotSTL` using a custom `shift_threshold`.
 
-**Status:** [Awaiting review / Iterating / Merged / Closed. The
-status is a fact you record, never a grade: the PR is graded as
-opened.]
+The test creates periodic data with a seasonal shift beginning at index 100 and compares configurations using `shift_threshold=1.0` and `shift_threshold=1e12`.
+
+It verifies that the lower threshold produces a smaller absolute residual at the first shifted observation.
+
+The change is limited to:
+
+`tests/transform/preprocessing/test_one_shot_stl.py`
+
+The contribution adds 24 lines.
+
+Testing completed with 164 preprocessing tests passing and 3,154 tests passing across the full suite, with 4 skipped and 75 deselected.
+
+The pre-commit run encountered an unrelated `CLAUDE.md` modification, which I restored.
+
+**AI Assistance**
+
+I used Claude Code to investigate the repository, understand the issue, and plan the regression test.
+
+I reviewed the changes and validated the contribution using pytest and Git.
+
+**Maintainer Feedback**
+
+**Claim comment:** https://github.com/selimfirat/pysad/issues/773#issuecomment-6891074775
+
+**Automated feedback:** The GitHub Actions bot thanked me for my first PySAD pull request, stated that CI would run the tests, and reminded me to include a test and follow `.github/CONTRIBUTING.md`.
+
+**CI results:** All 20 GitHub checks passed successfully.
+
+**Review status:** One code-owner review was pending in the last status I checked. GitHub reported that merging was blocked until a code owner approved the pull request.
+
+**My response:** My contribution includes a regression test for `OneShotSTL` using a custom `shift_threshold`. I will address any changes requested during maintainer review.
+
+**Status:** Awaiting code-owner review at the last verified check, with all 20 CI checks passing.
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- **Tool:** GitHub CLI, Git, pytest, and GitHub Actions. Ship-gate and PR-monitor tool results have not yet been verified.
+- **What it produced:** Pull request #779 against the original PySAD repository, with all 20 automated checks passing.
+- **Difficulties:** The repository's pre-commit checks encountered an unrelated file modification. The pull request also remained awaiting maintainer review.
+- **What changed:** I restored unrelated local changes and will respond to maintainer feedback if it arrives.
 
 ---
 
@@ -258,25 +412,46 @@ opened.]
 
 **Technical Skills Gained**
 
-[What you learned technically, named concretely.]
+I gained experience contributing to an existing Python machine learning project, writing deterministic regression tests, and using pytest to validate changes.
+
+I learned how to test the behavior of a configurable preprocessing component by comparing outputs under different parameter values.
+
+I also gained experience using Git branches, commits, forks, and pull requests to submit changes for review.
 
 **Challenges Overcome**
 
-[What was hard and how you solved it; point at the real events, the
-Toolkit blocks above are full of them.]
+One challenge was setting up the testing environment.
+
+Missing dependencies and pandas compatibility issues prevented some tests from running initially.
+
+I resolved these issues and successfully completed the full test suite.
+
+Another challenge involved pre-commit checks producing unrelated file modifications on Windows.
+
+I inspected the differences, restored the affected files, and confirmed that my contribution remained limited to the intended test.
+
+I also learned that submitting a pull request does not mean it will be merged immediately.
+
+Maintainer review is a separate part of the contribution process.
 
 **What I'd Do Differently Next Time**
 
-[Reflection on your process.]
+Next time, I would verify the development environment and required dependencies before beginning implementation.
+
+I would also record reproduction evidence and dated implementation notes as I worked instead of reconstructing them later.
+
+I would complete the issue-scout, voice guard, plan-check, ship-gate, and PR-monitor setup earlier in the process so that each tool could support the appropriate stage of the contribution.
+
+Finally, I would make sure to claim an issue before starting work and document maintainer communication as it happens.
 
 ---
 
 ## Resources Used
 
-[What actually helped, not a reading list. List things this story
-already shows you using: the doc you followed to set the environment
-up, the thread that explained the bug, the person who answered you.
-One real entry beats ten plausible ones.]
-
-- [Link to documentation that helped]
-- [Discussion, issue, or post that helped]
+- **PySAD issue #773:** https://github.com/selimfirat/pysad/issues/773
+- **Claim comment:** https://github.com/selimfirat/pysad/issues/773#issuecomment-6891074775
+- **PySAD repository:** https://github.com/selimfirat/pysad
+- **PySAD pull request #779:** https://github.com/selimfirat/pysad/pull/779
+- **Pytest documentation:** https://docs.pytest.org/
+- **Git documentation:** https://git-scm.com/docs
+- **AI301 Assignment 5 instructions:** Course materials for Units 9–12.
