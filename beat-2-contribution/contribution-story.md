@@ -12,11 +12,13 @@
 
 **Unit 9: Building My Issue Scout**
 
-During Unit 9, I worked with Claude Code to build an issue scout for finding and evaluating open-source GitHub issues. The scout was designed to assess whether issues matched my skills and were manageable contributions.
+During Unit 9, I worked with Claude Code to build an issue scout for evaluating open-source GitHub issues. The scout was designed to assess whether issues matched my skills and were manageable contributions.
 
 One challenge was that real-world issues can contain unanswered questions, making a strict scope check less useful. I identified the need to improve the rubric so it could distinguish straightforward, moderate, and ambitious issues instead of automatically rejecting them.
 
 I selected PySAD issue #773 because it offered a focused testing contribution related to Python and machine learning.
+
+I also completed my Issue Scout rubric and fit profile in my course repository under `tools/issue-select/`. I committed and pushed these files in commit `f938c4c`. The proposed difficulty-classification improvement was not implemented in that version of the rubric.
 
 **Unit 10: Voice Guard and Repository Memory**
 
@@ -44,7 +46,9 @@ During Unit 12, I focused on tracking my PySAD pull request #779 while waiting f
 
 The assignment introduced a PR monitor that checks GitHub for reviews, comments, and status changes, along with a playbook for deciding when to respond or follow up.
 
-My pull request passed all 20 GitHub CI checks but still required code-owner review.
+On November 15, 2026, I used GitHub CLI to check the pull request's automated checks, review requests, and merge status.
+
+The command output showed 19 successful automated checks, an open pull request, a blocked merge status, and a pending review request to `selimfirat`.
 
 I still need to verify the PR-monitor installation and document its results.
 
@@ -77,9 +81,9 @@ The original automated scout verdict and difficulty rating were not preserved, s
 **Toolkit**
 
 - **Tool:** Claude Code issue-scout, used to research and evaluate GitHub issues based on scope, difficulty, and suitability.
-- **What it produced:** The issue-selection process led me to PySAD issue #773, a focused testing contribution.
+- **What it produced:** The issue-selection process led me to PySAD issue #773, a focused testing contribution. I also committed my Issue Scout files to my course repository.
 - **Difficulties:** A strict scope check could reject real-world issues because they contained unanswered questions.
-- **What changed:** I identified the `scope-feasible` rubric as an improvement, categorizing issues as straightforward, moderate, or ambitious. I still need to confirm whether I applied this patch.
+- **What changed:** I identified the `scope-feasible` rubric as a possible improvement for classifying issues as straightforward, moderate, or ambitious. This improvement remains proposed rather than implemented.
 
 ---
 
@@ -308,24 +312,26 @@ Result: `nothing to commit, working tree clean`.
 
 After submitting pull request #779, GitHub Actions ran the repository's automated checks.
 
-**Results:**
+**Results verified on November 15, 2026:**
 
-- 20 automated checks passed successfully.
-- GitHub reported "All checks have passed."
-- No failing CI checks were shown.
-- One code-owner review remained pending.
-- Merging was blocked until the required review was completed.
+- All 19 automated checks reported by GitHub CLI succeeded.
+- Python tests passed across Ubuntu, macOS, and Windows.
+- CodeQL, coverage, dependency review, and pre-commit checks passed.
+- No failing automated checks were reported.
+- GitHub reported `mergeStateStatus: BLOCKED`.
+- A review was requested from `selimfirat`.
+- No reviews had been submitted.
 
 These results provide additional evidence that my regression test integrates successfully with the PySAD project.
 
-Although all automated checks passed, the contribution still requires maintainer approval before it can be merged.
+Although all automated checks passed, the contribution remained open and was not yet merged.
 
 **Before-and-after evidence:** The original gap was missing regression coverage. The added test passed as part of the preprocessing and full test suites. Separate before-and-after reproduction output was not preserved.
 
 **Toolkit**
 
-- **Tool:** pytest, pre-commit, Git, and GitHub Actions. Ship-gate tool results have not yet been verified.
-- **What it produced:** Passing preprocessing and full-suite test results, 20 successful GitHub CI checks, and evidence that the committed diff was limited to one test file.
+- **Tool:** pytest, pre-commit, Git, GitHub CLI, and GitHub Actions. Ship-gate tool results have not yet been verified.
+- **What it produced:** Passing preprocessing and full-suite test results, 19 successful GitHub CI checks, and evidence that the committed diff was limited to one test file.
 - **Difficulties:** Missing packages, pandas compatibility, and Windows line-ending modifications.
 - **What changed:** I resolved dependency issues, restored unrelated changes, and verified a clean working tree before finalizing the contribution.
 
@@ -373,16 +379,20 @@ Finally, I ran `git status` and confirmed that my working tree was clean and my 
 
 The pull request was submitted for review; its exact creation date should be confirmed from GitHub.
 
-**GitHub CI Results**
+**November 15, 2026 — GitHub CI and Review Status**
 
-GitHub Actions completed all 20 automated checks successfully.
+GitHub CLI reported 19 successful automated checks for pull request #779.
 
-GitHub indicated that the pull request was waiting for a required code-owner review before merging.
+The pull request was open, with `mergeStateStatus: BLOCKED`.
+
+The latest review query showed no completed reviews and a review request for `selimfirat`.
+
+The output did not establish whether review approval was the only remaining merge requirement.
 
 **Toolkit**
 
-- **Tool:** Git, pytest, pre-commit, GitHub Actions, and Claude Code.
-- **What it produced:** One focused commit adding 24 lines to the `OneShotSTL` test file, followed by pull request #779 and 20 passing GitHub checks.
+- **Tool:** Git, pytest, pre-commit, GitHub Actions, GitHub CLI, and Claude Code.
+- **What it produced:** One focused commit adding 24 lines to the `OneShotSTL` test file, followed by pull request #779 and 19 successful GitHub checks.
 - **Difficulties:** Environment dependency problems, unrelated formatting modifications, and the pending review requirement.
 - **What changed:** I corrected the environment, restored unrelated files, and verified that the branch contained only the intended contribution.
 
@@ -424,18 +434,18 @@ I reviewed the changes and validated the contribution using pytest and Git.
 
 **Automated feedback:** The GitHub Actions bot thanked me for my first PySAD pull request, stated that CI would run the tests, and reminded me to include a test and follow `.github/CONTRIBUTING.md`.
 
-**CI results:** All 20 GitHub checks passed successfully.
+**CI results:** All 19 automated checks reported by GitHub CLI passed successfully, including tests across Ubuntu, macOS, and Windows, CodeQL analysis, coverage, and pre-commit checks.
 
-**Review status:** One code-owner review was pending in the last status I checked. GitHub reported that merging was blocked until a code owner approved the pull request.
+**Review status:** As of November 15, 2026, GitHub reported `mergeStateStatus: BLOCKED`. A review was requested from `selimfirat`, and no reviews had been submitted.
 
 **My response:** My contribution includes a regression test for `OneShotSTL` using a custom `shift_threshold`. I will address any changes requested during maintainer review.
 
-**Status:** Awaiting code-owner review at the last verified check, with all 20 CI checks passing.
+**Status:** Pull request #779 remained open, with 19 successful automated checks and a requested maintainer review. The contribution had not yet been merged.
 
 **Toolkit**
 
 - **Tool:** GitHub CLI, Git, pytest, and GitHub Actions. Ship-gate and PR-monitor tool results have not yet been verified.
-- **What it produced:** Pull request #779 against the original PySAD repository, with all 20 automated checks passing.
+- **What it produced:** Pull request #779 against the original PySAD repository, with 19 successful automated checks and a pending review request.
 - **Difficulties:** The repository's pre-commit checks encountered an unrelated file modification. The pull request also remained awaiting maintainer review.
 - **What changed:** I restored unrelated local changes and will respond to maintainer feedback if it arrives.
 
@@ -450,6 +460,8 @@ I gained experience contributing to an existing Python machine learning project,
 I learned how to test the behavior of a configurable preprocessing component by comparing outputs under different parameter values.
 
 I also gained experience using Git branches, commits, forks, and pull requests to submit changes for review.
+
+I improved my understanding of GitHub CLI by using it to inspect CI checks, review requests, and merge status.
 
 **Challenges Overcome**
 
@@ -475,6 +487,8 @@ I would also record reproduction evidence and dated implementation notes as I wo
 
 I would complete the issue-scout, voice guard, plan-check, ship-gate, and PR-monitor setup earlier in the process so that each tool could support the appropriate stage of the contribution.
 
+I would also improve the Issue Scout rubric by recording difficulty classifications and evaluating how it handles missing evidence.
+
 Finally, I would make sure to claim an issue before starting work and document maintainer communication as it happens.
 
 ---
@@ -485,6 +499,7 @@ Finally, I would make sure to claim an issue before starting work and document m
 - **Claim comment:** https://github.com/selimfirat/pysad/issues/773#issuecomment-6891074775
 - **PySAD repository:** https://github.com/selimfirat/pysad
 - **PySAD pull request #779:** https://github.com/selimfirat/pysad/pull/779
+- **Issue Scout files:** https://github.com/jack456740/real/tree/main/tools/issue-select
 - **Pytest documentation:** https://docs.pytest.org/
 - **Git documentation:** https://git-scm.com/docs
 - **AI301 Assignment 5 instructions:** Course materials for Units 9–12.
