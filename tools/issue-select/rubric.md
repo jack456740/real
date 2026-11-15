@@ -1,44 +1,35 @@
 # Rubric: is this a good first issue?
 
 <!--
-THIS IS THE PART YOU WRITE. The skill in SKILL.md executes whatever checks
-you define here. It ships empty on purpose: the judgment is your work.
-
-A filled rubric must contain:
-
-1. At least one row in the checks table. Each row needs all four columns:
-   - Check: a short name (used in the output JSON).
-   - Evidence: exactly what to look at, and where. Name the source
-     (repo-facts block, issue body, comment thread, or the locations in
-     references/evidence-guide.md). "The repo" is not a source; "the last
-     5 default-branch commit dates" is.
-   - Pass condition: a condition someone else could apply and get your
-     answer. Prefer thresholds with numbers ("a maintainer commented
-     within 30 days") over adjectives ("maintainer is responsive").
-   - Weight: `required` (a fail here rejects the issue) or `preferred`
-     (never changes the verdict; a nice-to-have that helps rank the
-     issues you accept).
-
-2. A verdict rule below the table: how the check grades combine into
-   accept or reject, including how `unclear` is treated. The verdict
-   space is binary. If you write no rule for `unclear`, the skill treats
-   it as fail.
-
-Cover what actually kills first contributions. The lecture named four
-families: the maintainer is alive, the repo is in use, the scope fits a
-newcomer, and nobody else is already on it. A rubric that ignores a family
-will fail eval issues designed around that family.
+This rubric defines the checks used to decide whether an issue is a good
+first contribution. Each required check must pass for an issue to be
+accepted.
 -->
 
 ## Checks
 
 | Check | Evidence | Pass condition | Weight |
 |---|---|---|---|
-| Maintainer activity | Repo-facts block for default-branch commit dates and the issue's comment thread | At least 1 commit was made to the default branch within the last 90 days, and a maintainer has responded to the issue within the last 90 days | required |
-| Repository in use | Repo-facts block for recent default-branch activity | The default branch has at least 3 commits within the last 90 days | required |
-| Newcomer scope | Issue body, issue labels, and the relevant locations described in `references/evidence-guide.md` | The issue describes a bounded change that can reasonably be implemented without requiring a major architectural redesign or changes across 3 or more unrelated areas of the repository | required |
-| No existing contributor ownership | Issue body and full comment thread | No contributor has stated that they are actively working on the issue, and there is no open pull request linked to or clearly addressing the issue | required |
+| Maintainer activity | Comment thread: dates and authors of maintainer comments or responses. Repo-facts block: date of the most recent default-branch commit. | Pass if a maintainer has commented on the issue within the last 90 days OR the repo-facts block shows a default-branch commit within the last 90 days. | required |
+| Repository activity | Repo-facts block: dates of the last 5 commits on the default branch. | Pass if at least 2 of the last 5 default-branch commits were made within the last 90 days. | required |
+| scope-feasible | Issue body: the work it asks for | The issue describes one identifiable piece of work someone could start: a behavior, a gap, or a task you can point at. It fails only when there is no single piece of work in it: a codebase-wide checklist, an "improve X everywhere", or a container issue tracking many sub-tasks. An open design edge, an "etc.", or several files involved never fails this check; that raises the difficulty note instead. | required |
+| Unclaimed | Repo-facts block, issue body, and comment thread: assignees, linked pull requests, contributor statements that they have started or are currently working on the issue, maintainer statements reserving the issue for a contributor, and implementation-progress updates. | Pass if the issue has no assignee, there is no open linked pull request addressing it, no contributor states that they have started or are currently working on it, and no maintainer explicitly reserves it for another contributor. | required |
+| Contribution policy | Repo-facts contribution-policy summary and any maintainer policy statements in the issue or comments. | Pass if there is no repository contribution policy or maintainer instruction that prevents or disallows the prospective contributor from working on or submitting the issue. If the contribution policy contains no relevant restriction, pass. | required |
+
+## Difficulty note
+
+With each accepted candidate, report a one-line difficulty note in the read-out summary:
+
+- **straightforward**: The issue names where the change lives and the change is bounded.
+- **moderate**: The location is yours to find, or several files are involved.
+- **ambitious**: An open design edge or an unfamiliar subsystem; name the edge because claiming this issue means raising it with the maintainer early.
+
+The difficulty note is information for the chooser, never a verdict input. It does not appear in the fenced JSON block, never changes accept or reject, and is skipped entirely in eval mode.
 
 ## Verdict rule
 
-Accept the issue if every required check passes. Reject the issue if any required check fails. An unclear result on any required check counts as a fail. There are no preferred checks, so the verdict is determined entirely by the required checks.
+Accept an issue only if every required check passes. Reject the issue if
+any required check fails. Treat unclear as fail when the available evidence
+is insufficient to determine whether a required check passes. Preferred
+checks, if added later, do not change the accept/reject verdict and are used
+only to rank accepted issues.
