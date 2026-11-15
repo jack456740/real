@@ -194,11 +194,35 @@ The existing tests did not directly compare different `shift_threshold` configur
 
 Because the issue requested a test, the appropriate change was to add regression coverage rather than modify the algorithm itself.
 
-**Proposed Solution**
+**File and Function Analysis**
 
-I planned to add a deterministic test in:
+The primary file involved in my contribution was:
 
 `tests/transform/preprocessing/test_one_shot_stl.py`
+
+The regression test function I added was:
+
+`test_one_shot_stl_custom_shift_threshold()`
+
+The function begins at line 106 in the test file.
+
+This test checks the behavior of the `OneShotSTL` class using two different `shift_threshold` values: `1.0` and `1e12`.
+
+I constructed deterministic periodic data with a seasonal shift at index 100 and compared the absolute residuals produced by both configurations.
+
+The test verifies that the lower threshold produces a smaller absolute residual at the first shifted observation.
+
+I did not modify the `OneShotSTL` implementation. My contribution added regression test coverage to verify the behavior of its existing configuration parameter.
+
+**Proposed Solution**
+
+I planned to add a deterministic regression test to:
+
+`tests/transform/preprocessing/test_one_shot_stl.py`
+
+The function would be named:
+
+`test_one_shot_stl_custom_shift_threshold()`
 
 The test would generate periodic data with a shift, process it using two different `shift_threshold` values, and compare the resulting residuals.
 
@@ -206,15 +230,16 @@ I deliberately avoided changing the implementation of `OneShotSTL`, modifying un
 
 **Implementation Plan**
 
-1. Inspect the existing `OneShotSTL` tests and identify where to add the new test.
-2. Generate deterministic periodic data with a shift beginning at index 100.
-3. Create two `OneShotSTL` configurations using thresholds of `1.0` and `1e12`.
-4. Process the same data through both configurations.
-5. Assert that the lower threshold produces a smaller absolute residual at the first shifted observation.
-6. Run the preprocessing test suite and full project test suite.
-7. Review the Git diff, commit the test, and open a pull request.
+1. Inspect the existing `OneShotSTL` tests in `tests/transform/preprocessing/test_one_shot_stl.py`.
+2. Add the function `test_one_shot_stl_custom_shift_threshold()`.
+3. Generate deterministic periodic data with a shift beginning at index 100.
+4. Create two `OneShotSTL` configurations using thresholds of `1.0` and `1e12`.
+5. Process the same data through both configurations.
+6. Assert that the lower threshold produces a smaller absolute residual at the first shifted observation.
+7. Run the preprocessing test suite and full project test suite.
+8. Review the Git diff, commit the test, and open a pull request.
 
-**Deviations:**
+**Deviations**
 
 The testing environment required additional dependency installation and a pandas version adjustment.
 
@@ -223,7 +248,7 @@ Windows line-ending changes also required cleanup.
 **Toolkit**
 
 - **Tool:** Claude Code, Git, and pytest. Plan-check tool results have not yet been verified.
-- **What it produced:** A focused implementation plan for a single regression test.
+- **What it produced:** A focused implementation plan for the `test_one_shot_stl_custom_shift_threshold()` regression test.
 - **Difficulties:** Environment compatibility and repository-wide formatting checks introduced work outside the test itself.
 - **What changed:** I resolved the environment issues and kept the committed changes limited to the intended test file.
 
@@ -233,13 +258,19 @@ Windows line-ending changes also required cleanup.
 
 I tested the contribution at multiple levels.
 
-**Regression Behavior**
+**Observable Check 1: Custom Threshold Behavior**
 
-The new test used deterministic periodic data with a seasonal shift at index 100.
+The regression test used deterministic periodic data with a seasonal shift at index 100.
 
 It compared the absolute residuals produced by `OneShotSTL` with `shift_threshold=1.0` and `shift_threshold=1e12`.
 
 The assertion verified that the lower threshold produced a smaller absolute residual at the first shifted observation.
+
+This check directly tested the behavior requested in issue #773.
+
+**Observable Check 2: Automated Test Results**
+
+I ran the preprocessing test suite and the full PySAD test suite to confirm that the new regression test worked alongside existing tests.
 
 **Preprocessing Tests**
 
@@ -308,9 +339,11 @@ I selected PySAD issue #773 and inspected the existing `OneShotSTL` test coverag
 
 I chose to implement a deterministic regression test rather than change the preprocessing algorithm.
 
-I added a test using periodic data with a seasonal shift at index 100.
+I added the function `test_one_shot_stl_custom_shift_threshold()` to `tests/transform/preprocessing/test_one_shot_stl.py`.
 
-The test compared thresholds of `1.0` and `1e12` and checked their absolute residuals at the first shifted observation.
+The test used periodic data with a seasonal shift at index 100.
+
+It compared thresholds of `1.0` and `1e12` and checked their absolute residuals at the first shifted observation.
 
 During testing, I encountered missing Python dependencies and pandas compatibility issues.
 
@@ -363,7 +396,7 @@ GitHub indicated that the pull request was waiting for a required code-owner rev
 
 Title: `test: cover OneShotSTL custom shift_threshold (#773)`
 
-The pull request adds a deterministic regression test for `OneShotSTL` using a custom `shift_threshold`.
+The pull request addresses PySAD issue #773 by adding a deterministic regression test for `OneShotSTL` using a custom `shift_threshold`.
 
 The test creates periodic data with a seasonal shift beginning at index 100 and compares configurations using `shift_threshold=1.0` and `shift_threshold=1e12`.
 
